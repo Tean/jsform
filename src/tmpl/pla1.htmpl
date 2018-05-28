@@ -1,0 +1,14 @@
+<div><span>{index}</span></div>
+<div>
+    <ul>
+        <li>
+            {p}
+        </li>
+        <li>
+            {l}
+        </li>
+        <li>
+            {a}
+        </li>
+    </ul>
+</div>

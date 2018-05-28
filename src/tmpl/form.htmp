@@ -1,0 +1,10 @@
+<div class="form">
+    <div class="head">
+        <div class="close">Close</div>
+    </div>
+    <div class="body"></div>
+    <div class="tail"></div>
+</div>
+<link type="text/css" href="./css/tmpl/form.tmpl.css" rel="stylesheet">
+<script src="./js/tmpl/tmpEng.js"></script>
+<script src="./js/tmpl/form.tmpl.js"></script>

@@ -5,6 +5,41 @@
     <title>Title</title>
 </head>
 <body>
+<div><span onclick="test()">Test</span><span onclick="hideHead()">HideHead</span></div>
+<div class="content"></div>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/tmpl/form.tmpl.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<script type="text/javascript">
+    var form;
+    var scp = 0;
+    var headHided = false;
 
+    function test() {
+        if (!form) form = new Form($('.content'));
+        form.show('soso', function (pDiv, tag) {
+            // console.log('closecall:' + pDiv);
+            console.log(pDiv.attr('class') + ':' + tag);
+            div.empty();
+            form = null;
+        });
+        console.log(scp);
+
+        if (scp % 3 === 0)
+            form.loadBody({index: scp, p: 'pla', l: 'la', a: 'a'}, './tmpl/pla.htmpl');
+        else if (scp % 3 === 1)
+            form.loadBody({index: scp, p: 'pla1', l: 'la1', a: 'a1'}, './tmpl/pla1.htmpl');
+        else
+            form.loadBody({index: scp, p: 'pla2', l: 'la2', a: 'a2'}, './tmpl/pla2.htmpl');
+        scp++;
+    }
+
+    function hideHead() {
+        if (form) {
+            form.hideHead(!headHided);
+            headHided = !headHided;
+        }
+    }
+</script>
 </body>
 </html>
