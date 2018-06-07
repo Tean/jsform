@@ -17,5 +17,5 @@
     <div class="body"></div>
     <div class="tail"></div>
 </div>
-<script src="./js/tmpl/tmpEng.js"></script>
-<script src="./js/tmpl/form.tmpl.js"></script>
+<script src="./js/tmpl/form/form.app.js"></script>
+<script src="./js/tmpl/form/form.event.js"></script>
