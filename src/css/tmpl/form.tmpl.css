@@ -1,28 +1,89 @@
 .form {
     width: 100%;
-    height: 500px;
-    border-style: dashed;
+    height: 100%;
+    border-right-style: hidden;
+    /*background: url("../../image/back.png");*/
 }
 
 .form .head {
-    background: yellow;
-    height: 5%;
+    height: 17%;
+    border-right-style: inherit;
+}
+
+.form .head .info {
+    float: left;
+    width: 70%;
+    height: 100%;
+    border-right-style: inherit;
+}
+
+.form .head .info .user {
+    float: left;
+    width: 30%;
+    height: 100%;
+    /*background: deepskyblue;*/
+    border-right-style: inherit;
+}
+
+.form .head .info .user .avator {
+    width: 40%;
+    height: 100%;
+    /*background: lightgoldenrodyellow;*/
+    border-right-style: inherit;
+}
+
+.form .head .info .user .avator .img {
+    width: 100%;
+    height: 100%;
+    background: url("../../image/head_portrait_man.png") no-repeat center center;
+    border-right-style: inherit;
+}
+
+.form .head .info .ratio {
+    float: left;
+    width: 40%;
+    height: 100%;
+    /*background: indianred;*/
+    border-right-style: inherit;
+}
+
+.form .head .info .remain {
+    float: left;
+    width: 40%;
+    height: 100%;
+    /*background: darkgrey;*/
+    border-right-style: inherit;
+}
+
+.form .head .rbtn {
+    float: left;
+    /*background: darkcyan;*/
+    width: 20%;
+    height: 100%;
+    border-right-style: inherit;
 }
 
 .form .head .close {
-    background: greenyellow;
-    width: 20%;
+    float: left;
+    /*background: greenyellow;*/
+    width: 10%;
     height: 100%;
-    float: right;
-    clear: both;
+    border-right-style: inherit;
+}
+
+.form .spanline {
+    height: 3%;
+    background: url("../../image/sene2_main.png") no-repeat center center;
 }
 
 .form .body {
     height: 90%;
-    background: limegreen;
+    /*background: limegreen;*/
+    border-right-style: inherit;
 }
 
 .form .tail {
-    height: 5%;
-    background: indianred;
+    height: 0%;
+    /*background: indianred;*/
+    border-right-style: inherit;
 }

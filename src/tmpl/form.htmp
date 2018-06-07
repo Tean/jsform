@@ -1,10 +1,21 @@
+<link type="text/css" href="./css/tmpl/form.tmpl.css" rel="stylesheet">
 <div class="form">
     <div class="head">
-        <div class="close">Close</div>
+        <div class="info clickable">
+            <div class="user">
+                <div class="avator">
+                    <div class="img"></div>
+                </div>
+            </div>
+            <div class="ratio"></div>
+            <div class="remain"></div>
+        </div>
+        <div class="rbtn clickable"><pan>RBTN</pan></div>
+        <div class="close clickable">Close</div>
     </div>
+    <div class="spanline"></div>
     <div class="body"></div>
     <div class="tail"></div>
 </div>
-<link type="text/css" href="./css/tmpl/form.tmpl.css" rel="stylesheet">
 <script src="./js/tmpl/tmpEng.js"></script>
 <script src="./js/tmpl/form.tmpl.js"></script>

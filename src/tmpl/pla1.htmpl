@@ -2,13 +2,13 @@
 <div>
     <ul>
         <li>
-            {p}
+            { p }
         </li>
         <li>
-            {l}
+            { l  }
         </li>
         <li>
-            {a}
+            {   a }
         </li>
     </ul>
 </div>

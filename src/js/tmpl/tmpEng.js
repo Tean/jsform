@@ -1,9 +1,13 @@
 var rep={};
 
 rep.tempEngine= (function () {
-    var pattern = /\{(\w*[:]*[=]*\w+)\}(?!})/g;
+    // var pattern = /\{(\w*[:]*[=]*\w+)\}(?!})/g;
+    var pattern = /\{[\s]*(\w*[:]*[=]*\w+)[\s]*\}(?!})/g;
     return function (template, json) {
+        template.match(pattern)
         return template.replace(pattern, function (match, key, value) {
+
+            console.log(key+":"+typeof (json[key]));
             return json[key];
         });
     }

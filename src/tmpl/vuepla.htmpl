@@ -1,0 +1,19 @@
+<div id="index"><span>{{index}}</span></div>
+<div id="list">
+    <ol>
+        <li>
+            {{p}}
+        </li>
+        <li>
+            {{ l }}
+        </li>
+        <li>
+            {{ a }}
+        </li>
+    </ol>
+</div>
+<ul id="ul_ex">
+    <li v-for="item in items" class="clickable">
+        {{ item.message }}
+    </li>
+</ul>
