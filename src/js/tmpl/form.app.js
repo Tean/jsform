@@ -30,7 +30,7 @@ function App() {
             successcall = function (pDiv, tag) {
                 console.log('show success');
                 console.log(tform);
-                tform.loadBodyVUE(data = tlbvm, tmplfile = './tmpl/vuepla.htmpl',
+                tform.loadBodyVUE(data = tlbvm, tmplfile = './tmpl/form/vuepla.htmpl',
                     successcall = function (vms) {
                         console.log("vm:" + vms);
                     });
