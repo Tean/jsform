@@ -2,23 +2,12 @@ function App() {
 
     this.form;
     this.headHided = false;
-    this.lbvm = {
-        index: 0,
-        p: ['pla', 'plax'],
-        l: 'la',
-        a: 'a',
-        items: [
-            {message: 'soso'},
-            {message: 'osos'}
-        ]
-    };
 
-    this.show = function () {
+    this.show = function (tmpfile, tmpdata) {
         if (!this.form || this.form.isClosed) this.form = new Form($('.content'));
         var tform = this.form;
-        var tlbvm = this.lbvm;
         this.form.onClick(function (clicke) {
-            tlbvm.index++;
+            tmpdata.index++;
             var $this = $(clicke);
             console.log($this.text());
             if ($this.hasClass('rbtn'))
@@ -28,9 +17,9 @@ function App() {
         });
         this.form.show(tag = 'soso',
             successcall = function (pDiv, tag) {
-                console.log('show success');
+                console.log('show with ' + tmpfile + ' success');
                 console.log(tform);
-                tform.loadBodyVUE(data = tlbvm, tmplfile = './tmpl/form/vuepla.htmpl',
+                tform.loadBodyVUE(data = tmpdata, tmplfile = tmpfile,
                     successcall = function (vms) {
                         console.log("vm:" + vms);
                     });

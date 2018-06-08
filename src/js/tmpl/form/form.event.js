@@ -69,7 +69,7 @@ function Form(pDiv) {
     };
     this.hide = function () {
         this.pDiv.find('.form').hide();
-    }
+    };
     this.close = function () {
         this.pDiv.empty();
         this.isClosed = true;
