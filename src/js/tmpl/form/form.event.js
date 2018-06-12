@@ -10,17 +10,25 @@ function Form(pDiv) {
         var sran = this.ran;
         if (this.pDiv.css('display') === 'none') this.pDiv.show();
         var pDv = this.pDiv;
-        pDiv.load('./tmpl/form.htmp', function () {
-            // console.log(JSON.stringify(pDiv));
-            console.log(sran);
-            pDv.find('.form .close').click(function () {
-                if (closecall) closecall(pDv, tag);
-            });
-            pDv.find('.form').resize(function () {
-                console.log('form resize');
-            });
-            if (successcall) successcall(pDv, tag);
+        // pDiv.load('./tmpl/form.htmp', function () {
+        //     console.log(sran);
+        //     pDv.find('.form .close').click(function () {
+        //         if (closecall) closecall(pDv, tag);
+        //     });
+        //     pDv.find('.form').resize(function () {
+        //         console.log('form resize');
+        //     });
+        //     if (successcall) successcall(pDv, tag);
+        // });
+        pDv.empty();
+        pDv.append(new FormApp().html());
+        pDv.find('.form .close').click(function () {
+            if (closecall) closecall(pDv, tag);
         });
+        pDv.find('.form').resize(function () {
+            console.log('form resize');
+        });
+        if (successcall) successcall(pDv, tag);
     };
     this.loadBody = function (data, tmplfile) {
         var pDv = this.pDiv;
@@ -30,34 +38,59 @@ function Form(pDiv) {
             pDv.find('.form .body').html(reped);
         });
     };
-    this.loadBodyVUE = function (data, tmplfile, successcall) {
+    this.loadBodyVUE = function (data, htmpl, successcall) {
         var tclick = this.clickable;
-        this.pDiv.find('.form .body').load(tmplfile, function () {
-            var tclickin = tclick;
-            $(document).off('click', '.form .clickable');
-            $(document).on('click', '.form .clickable', function () {
-                tclickin(this);
-            });
-            console.log('loaded');
-            var vms = [];
-            var vm = new Vue({
-                el: '#index',
-                data: data
-            });
-            vms.push(vm);
-            vm = new Vue({
-                el: '#list',
-                data: data
-            });
-            vms.push(vm);
-            vm = new Vue({
-                el: '#ul_ex',
-                data: data
-            });
-            vms.push(vm);
-            if (successcall) successcall(vms);
-            return vms;
+        // this.pDiv.find('.form .body').load(htmpl, function () {
+        //     var tclickin = tclick;
+        //     $(document).off('click', '.form .clickable');
+        //     $(document).on('click', '.form .clickable', function () {
+        //         tclickin(this);
+        //     });
+        //     console.log('loaded');
+        //     var vms = [];
+        //     var vm = new Vue({
+        //         el: '#index',
+        //         data: data
+        //     });
+        //     vms.push(vm);
+        //     vm = new Vue({
+        //         el: '#list',
+        //         data: data
+        //     });
+        //     vms.push(vm);
+        //     vm = new Vue({
+        //         el: '#ul_ex',
+        //         data: data
+        //     });
+        //     vms.push(vm);
+        //     if (successcall) successcall(vms);
+        //     return vms;
+        // });
+        this.pDiv.find('.form .body').empty();
+        this.pDiv.find('.form .body').append(htmpl);
+        $(document).off('click', '.form .clickable');
+        $(document).on('click', '.form .clickable', function () {
+            tclick(this);
         });
+        console.log('loaded');
+        var vms = [];
+        var vm = new Vue({
+            el: '#index',
+            data: data
+        });
+        vms.push(vm);
+        vm = new Vue({
+            el: '#list',
+            data: data
+        });
+        vms.push(vm);
+        vm = new Vue({
+            el: '#ul_ex',
+            data: data
+        });
+        vms.push(vm);
+        if (successcall) successcall(vms);
+        return vms;
     };
     this.hideHead = function (hide) {
         if (hide) this.pDiv.find('.form .head').hide();
