@@ -3,19 +3,27 @@ function FormApp() {
     this.form;
     this.headHided = false;
 
-    this.show = function (htmpl, tmpdata) {
+    this.show = function (htmpl, tmpdata, onhide, onclose, stag) {
         if (!this.form || this.form.isClosed) this.form = new Form($('.content'));
         var tform = this.form;
         this.form.onClick(function (clicke) {
             tmpdata.index++;
             var $this = $(clicke);
-            console.log($this.text());
+            console.log('clicked: ' + $this.text());
             if ($this.hasClass('rbtn'))
                 tform.hide();
             if ($this.hasClass('close'))
                 tform.close();
         });
-        this.form.show(tag = 'soso',
+        this.form.onHide(function (trig, tag) {
+            console.log('hiding ' + trig + ':' + tag);
+            if (onhide) onhide(trig, tag);
+        });
+        this.form.onClose(function (trig, tag) {
+            console.log('closing ' + trig + ':' + tag);
+            if (onclose) onclose(trig, tag);
+        });
+        this.form.show(tag = stag,
             successcall = function (pDiv, tag) {
                 console.log('show with ' + htmpl + ' success');
                 console.log(tform);
@@ -23,11 +31,6 @@ function FormApp() {
                     successcall = function (vms) {
                         console.log("vm:" + vms);
                     });
-            }, closecall = function (pDiv, tag) {
-                // console.log('closecall:' + pDiv);
-                console.log(pDiv.attr('class') + ':' + tag);
-                // pDiv.empty();
-                // form = null;
             });
 
         // if (scp % 3 === 0)
@@ -60,7 +63,7 @@ function FormApp() {
             '            <div class="ratio"></div>\n' +
             '            <div class="remain"></div>\n' +
             '        </div>\n' +
-            '        <div class="rbtn clickable"><pan>RBTN</pan></div>\n' +
+            '        <div class="rbtn hide clickable"><pan>RBTN</pan></div>\n' +
             '        <div class="close clickable">Close</div>\n' +
             '    </div>\n' +
             '    <div class="spanline"></div>\n' +

@@ -3,10 +3,18 @@ function Form(pDiv) {
     this.pDiv = pDiv;
     this.isClosed = false;
     this.clickable;
-    this.onClick = function (clickable) {
-        this.clickable = clickable;
+    this.onClick = function (clickcall) {
+        this.clickable = clickcall;
     };
-    this.show = function (tag, successcall, closecall) {
+    this.hideable;
+    this.onHide = function (hidecall) {
+        this.hideable = hidecall;
+    };
+    this.closeable;
+    this.onClose = function (closecall) {
+        this.closeable = closecall;
+    };
+    this.show = function (tag, successcall) {
         var sran = this.ran;
         if (this.pDiv.css('display') === 'none') this.pDiv.show();
         var pDv = this.pDiv;
@@ -20,10 +28,15 @@ function Form(pDiv) {
         //     });
         //     if (successcall) successcall(pDv, tag);
         // });
-        pDv.empty();
+        // pDv.empty();
         pDv.append(new FormApp().html());
+        var thideable = this.hideable;
+        pDv.find('.form .hide').click(function () {
+            if (thideable) thideable($(this), tag);
+        });
+        var tcloseable = this.closeable;
         pDv.find('.form .close').click(function () {
-            if (closecall) closecall(pDv, tag);
+            if (tcloseable) tcloseable($(this), tag);
         });
         pDv.find('.form').resize(function () {
             console.log('form resize');
