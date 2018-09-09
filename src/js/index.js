@@ -51,13 +51,17 @@ var lbvm = {
     p: ['pla', 'plax'],
     l: 'la',
     a: 'a',
-    items: [
-        {message: 'soso'},
-        {message: 'osos'}
+    items: [{
+            message: 'soso'
+        },
+        {
+            message: 'osos'
+        }
     ]
 };
 
 $(document).ready(function () {
+    $.getMultiScripts();
     var app = new FormApp();
     $('.content').css('height', 9 * $(this).width() / 16);
     $(window).resize(function (e) {
